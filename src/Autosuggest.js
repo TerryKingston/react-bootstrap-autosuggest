@@ -43,6 +43,7 @@ type Props = {
   disabled?: boolean;
   dropup?: boolean;
   groupClassName?: string;
+  inputRef?: (input: HTMLInputElement) => void;
   inputSelect?: (input: HTMLInputElement, value: string, completion: string) => void;
   itemAdapter?: ItemAdapter<*>;
   itemReactKeyPropName?: string;
@@ -1028,7 +1029,7 @@ export default class Autosuggest extends React.Component {
       {...extraProps}
       className={classNames(this.props.className,
         { 'form-control': !this.props.multiple })}
-      ref="input"
+      ref={this.props.inputRef}
       key="input"
       id={controlId}
       disabled={this.props.disabled}
